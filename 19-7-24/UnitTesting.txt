@@ -1,0 +1,41 @@
+//Unit testing
+/*used for testing in software development testing.
+. benifit-> improve code quality ,to identify the bugs easily and reduce the debugging time and maintainance is easy.
+.Key properties-> ACID properties.
+
+*NUnit Testing: only for .net.
+.Key features -> test fixtures, assertions,test attributes and test runners.
+.we are performing it in .net framework.
+.to perform this we should have a framework.
+
+.Assertion methods
+ AssertAreEqual()
+ AssertIsTrue()
+ Assert.Throws()
+. Text Fixature methods:
+ functions that 
+ contain the actual
+ test logic
+. test data methods:
+  TestCase
+  TestCaseSource
+*Testing Attributes:
+[Test]-marks a method as a test method.
+[SetUp]-execute before each test method in a fixture.
+[TearDown]-execution for next method.
+[Ignore]- to ignore that method.
+[TestCase]-provides parameterized data for test attribute.
+*features:
+Test report
+console runner
+IDE integration
+Parameterized tests
+*Advantages:
+improved code quality
+enhance code maintainability
+reduced debugging time
+increased confidence
+
+*in visual studio community
+create project->c#->give name ,path->create->add(class)sample.cs->add code->new project->nunitc#(proj name second)->right click(manage n get projects)->first nunit3,nunit test adopting,nunit console runner->install->right click(select project name repos) add(sample.cs)->file->add->existing ->first->
+

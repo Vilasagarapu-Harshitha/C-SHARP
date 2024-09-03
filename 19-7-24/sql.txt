@@ -1,0 +1,53 @@
+open sqlserver
+connect
+data base right click new database and giving it a new name and ok
+right click on it and select new query
+.code to create a new table
+
+table name as GEC.dbo.ABC(
+no int,
+name  nvarchar(50) NOT NULL,
+branch nvarchar(20) NOT NULL
+);
+
+and then execute then go to gec and tables then a table is created.
+.command to write insert
+
+ INSERT INTO GEC.dbo.ABC
+(no name branch) VALUES 
+(c0,'harshi','AI'),
+(b8,'veda','ai');
+
+.retriving
+ select *from ABC
+
+
+select no,name
+from ABC
+WHERE name='Harshi';
+
+
+JOINTS:
+-------
+used to join 2 types of tables.
+
+INNER JOIN:
+common data in both tables are returned
+
+SELECT *FROM brabch
+INNER JOIN marks
+ON branch.bid=marks.bid;
+
+OUTER JOIN:
+if column name matches then it returns all data from the column including null values
+
+LEFT JOIN:
+only one table data we get.
+
+RIGHT JOIN:
+only right table data is retrieved.
+
+
+CROSS JOIN:
+
+

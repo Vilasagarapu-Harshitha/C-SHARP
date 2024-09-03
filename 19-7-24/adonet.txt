@@ -1,0 +1,385 @@
+//ADO.net - avtivex data objects for .net 
+
+Data base to dotnet connection
+select C# from all languages and windows from all platforms and then select colsoleapp(.net)
+
+view->server explorer-.data connections (right click)->add connections(Microsoft sql server) ->asks server name so go to ssm .we get server name copy it ->give it where it is asked ->click on trust server certificate-> create data base name if we want ->ok
+
+then create new database ->go to page again and click ok.
+
+in the right side console app pina nugetapp->browse type sql ->Microsoft data sql client, system data sql client ,micrisoft entityframework core sql server .install them.
+
+*to connect.-
+-------------
+using System;
+using System.Data.SqlClient;
+class Program{
+static void Main(string[] args){
+new Program().CreateTable();
+}
+public void CreateTable()
+{
+SqlConnection con = null;
+try
+{
+con=new SqlConnection("data source=paste server name;database=sample;integrated security=SSPI");
+con open();
+Console.WriteLine("success");
+}
+catch(Exception ex)
+{
+Console.WriteLine(ex.message);
+}}
+
+write program->to run open in terminal->shift to cmd-> execute ->then click on run in the top if there are no errors.
+
+
+*TO create table:
+-----------------
+using System;
+using System.Data.SqlClient;
+class Program{
+static void Main(string[] args){
+new Program().CreateTable();
+Console.ReadKey();
+}
+public void CreateTable()
+{
+SqlConnection con = null;
+try
+{
+con=new SqlConnection("data source=paste server name;database=sample;integrated security=SSPI");
+SqlCommand s1=new SqlCommand("create table demo(id int not null,name varchar(30),branch varchar(40))",con);
+con open();
+s1.ExecuteNonQuery();
+Console.WriteLine("table created successfully");
+Console.WriteLine("success");
+}
+catch(Exception ex)
+{
+Console.WriteLine(ex.message);
+}}
+
+to run open in terminal->shift to cmd-> execute ->then click on run in the top if there are no errors.
+
+
+*to insert elements:
+---------------------
+
+using System;
+using System.Data.SqlClient;
+class Program{
+static void Main(string[] args){
+new Program().InsertTable();
+COnsole.ReadKey();
+}
+public void CreateTable()
+{
+SqlConnection con = null;
+try
+{
+con=new SqlConnection("data source=paste server name;database=sample;integrated security=SSPI");
+SqlCommand s1=new SqlCommand("create table demo(id int not null,name varchar(30),branch varchar(40))",con);
+con open();
+s1.ExecuteNonQuery();
+Console.WriteLine("table created successfully");
+Console.WriteLine("success");
+}
+catch(Exception ex)
+{
+Console.WriteLine(ex.message);
+}
+}
+public void InsertTable()
+{
+SqlConnection con = null;
+try
+{
+con=new SqlConnection("data source=paste server name;database=sample;integrated security=SSPI");
+SqlCommand s2=new SqlCommand("insert into demo(id,name,branch) values(198,'abc','ai')",con);
+con open();
+s2.ExecuteNonQuery();
+Console.WriteLine("table created successfully");
+Console.WriteLine("success");
+}
+catch(Exception ex)
+{
+Console.WriteLine(ex.message);
+}
+}
+
+to run open in terminal->shift to cmd-> execute ->then click on run in the top if there are no errors. ->then go to ssm app and check for the database->tables->demo table->right click->select top 1000 rows.
+
+
+*to delete:
+-----------
+
+using System;
+using System.Data.SqlClient;
+
+namespace july23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().DeleteTable();
+            Console.ReadKey();
+        }
+
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand sl = new SqlCommand("create table Demo(id int not null,name varchar(30),branch varchar(40))", con);
+                con.Open();
+                sl.ExecuteNonQuery();
+                Console.WriteLine("Table creation success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void InsertTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("insert into Demo(id,name,branch) values (100,'ram','cse'),(101,'veda','ai&ds'),(102,'harshi','ai&ds'),(103,'keerthi','ai&ml')", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data inserted success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void DeleteTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("delete from Demo where id=100", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data deleted success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+    }
+}
+
+to run open in terminal->shift to cmd-> execute ->then click on run in the top if there are no errors. ->then go to ssm app and check for the database->tables->demo table->right click->select top 1000 rows.
+
+* if we want we can remove create table method at the time of insert and delete.
+
+
+*to display in the command prompt itself then we use:
+------------------------------------------------------
+
+
+using System;
+using System.Data.SqlClient;
+
+namespace july23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().DisplayTable();
+            Console.ReadKey();
+        }
+
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand sl = new SqlCommand("create table Demo(id int not null,name varchar(30),branch varchar(40))", con);
+                con.Open();
+                sl.ExecuteNonQuery();
+                Console.WriteLine("Table creation success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void InsertTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("insert into Demo(id,name,branch) values (100,'ram','cse'),(101,'veda','ai&ds'),(102,'harshi','ai&ds'),(103,'keerthi','ai&ml')", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data inserted success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void DeleteTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("delete from Demo where id=100", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data deleted success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void DisplayTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s3 = new SqlCommand("select * from Demo", con);
+                con.Open();
+                SqlDataReader reader = s3.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine("ID: " + reader["id"] + ", Name: " + reader["name"] + ", Branch: " + reader["branch"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+        }
+
+    }
+}
+
+*Atler code:
+----------------
+using System;
+using System.Data.SqlClient;
+
+namespace july23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().AlterTable();
+            Console.ReadKey();
+        }
+
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand sl = new SqlCommand("create table Demo(id int not null,name varchar(30),branch varchar(40))", con);
+                con.Open();
+                sl.ExecuteNonQuery();
+                Console.WriteLine("Table creation success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void InsertTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("insert into Demo(id,name,branch) values (100,'ram','cse'),(101,'veda','ai&ds'),(102,'harshi','ai&ds'),(103,'keerthi','ai&ml')", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data inserted success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void DeleteTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("delete from Demo where id=100", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data deleted success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void ReadTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s3 = new SqlCommand("select * from Demo", con);
+                con.Open();
+                SqlDataReader r = s3.ExecuteReader();
+                while (r.Read())
+                {
+                    Console.WriteLine("ID: " + r["id"].ToString());
+                    Console.WriteLine("NAME: " + r["name"].ToString());
+                    Console.WriteLine("BRANCH: " + r["branch"].ToString());
+                    Console.WriteLine();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+        }
+        public void AlterTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source=VEDHASAMHITHA\\SQLEXPRESS;database=college;integrated security=SSPI");
+                SqlCommand s2 = new SqlCommand("alter table Demo add phno varchar(20) Null", con);
+                con.Open();
+                s2.ExecuteNonQuery();
+                Console.WriteLine("Data Altered success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}
+
+
+
+
+
+
